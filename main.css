@@ -17,6 +17,7 @@ h2 {
 .something-else {
     font-size: 10px;
     text-align: center;
+    animation: Lennyface 1s infinite alternate linear;
 }
 
 .center {
@@ -27,3 +28,7 @@ h2 {
     width: 40%;
   }
 
+@keyframes Lennyface {
+    from { font-size: 10px}
+    to { font-size: 13px}
+}
