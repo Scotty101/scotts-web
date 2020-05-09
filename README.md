@@ -1,4 +1,2 @@
 # scotts-web
-This is a WEBSITE
-
-It's really awesome!
+Hi there human being, you are going to die someday.  

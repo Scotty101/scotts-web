@@ -5,8 +5,7 @@ body {
 
 h1 {
 }
-
-h2 {
+#something {
     padding: 5px;
     background-color: #607d8b;
     color: rgb(255, 255, 255);
@@ -32,3 +31,22 @@ h2 {
     from { font-size: 10px}
     to { font-size: 13px}
 }
+
+.Crappy-Chicken {
+    margin: 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    animation: Chicken 1s alternate 0s infinite linear ;
+}
+
+    
+   
+
+@keyframes Chicken {
+    from { height: 50px;}
+    to { height: 70px;}
+   
+}
+
