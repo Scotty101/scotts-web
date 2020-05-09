@@ -17,7 +17,7 @@ h2 {
 .something-else {
     font-size: 10px;
     text-align: center;
-    animation: Lennyface 1s infinite alternate linear;
+    /* animation: Lennyface 1s infinite alternate linear; */
 }
 
 .center {
