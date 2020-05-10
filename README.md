@@ -1,2 +1,3 @@
 # scotts-web
-Hi there human being, you are going to die someday.  
+Hi.
+This website that you are currently on is made with : visual studio code

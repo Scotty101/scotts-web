@@ -33,16 +33,9 @@ h1 {
 }
 
 .Crappy-Chicken {
-    margin: 0px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     height: 50px;
     animation: Chicken 1s alternate 0s infinite linear ;
 }
-
-    
-   
 
 @keyframes Chicken {
     from { height: 50px;}
@@ -50,3 +43,10 @@ h1 {
    
 }
 
+.github-logo {
+    padding: 5px;
+}
+
+.roblox {
+    height: 70px;
+}
