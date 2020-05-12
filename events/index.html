@@ -59,8 +59,10 @@
 
     <h2 class="text-center">Astronomy Picture of the Day</h2>
     <h3 class="text-center" id="title"></h3>
-    <img id="picture" class="center2" scr="" ALIGN=”right”>
-    <span id="text"></span>
+    <figure class="figure">
+      <img id="picture" src="" class="figure-img img-fluid rounded" alt="Astronomy Picture of the Day">
+      <figcaption id="text" class="figure-caption"></figcaption>
+    </figure>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
@@ -87,13 +89,14 @@ const action = async () => {
   const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY');
   const myJson = await response.json();
   var image = document.getElementById('picture');
-  image.src = myJson.url;
+  image.src = myJson.hdurl;
   var title = document.getElementById('title');
   title.innerHTML = myJson.title;
   var text = document.getElementById('text');
   text.innerHTML = myJson.explanation;
 }
 action();
+
 
 </script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
