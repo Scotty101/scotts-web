@@ -55,7 +55,7 @@
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                document.getElementById("name").innerText = "Welcome " + user.DisplayName
+                document.getElementById("name").innerText = "Welcome " + user.displayName
                 document.getElementById("email").innerText = "Email: " + user.email
             } else {
                 console.log("No user signed in");
