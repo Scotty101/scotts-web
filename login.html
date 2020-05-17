@@ -29,9 +29,39 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
+     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
     <script src="firebaseconfig.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+    <script type="text/javascript">
+
+      var urlParams = new URLSearchParams(window.location.search);
+      var page = urlParams.get('page');
+
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '/' + page,
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // tosUrl and privacyPolicyUrl accept either url string or a callback
+        // function.
+        // Terms of service url/callback.
+        tosUrl: '<your-tos-url>',
+        // Privacy policy url/callback.
+        privacyPolicyUrl: function() {
+          window.location.assign('<your-privacy-policy-url>');
+        }
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
 </head>
 
 <body>
@@ -52,27 +82,9 @@
         </div>
     </nav>
 
-    <script>
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                document.getElementById("name").innerText = "Welcome " + user.displayName
-                document.getElementById("email").innerText = "Email: " + user.email
-                if (user.photoURL) {
-                    document.getElementById("photo").src = user.photoURL;
-                }
-            } else {
-                console.log("No user signed in");
-            }
-        });
-    </script>
-
     <div class="container">
 
-        <h1 class="title text-center">My Account</h1>
-        <hr>
-        <h2 id="name"></h2>
-        <h2 id="email"></h2>
-        <img id="photo" class="img-fluid rounded">
+    <div id="firebaseui-auth-container"></div>
 
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
