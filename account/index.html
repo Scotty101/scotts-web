@@ -24,7 +24,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/main.css">
-    <title>Projects - Scotts-Web</title>
+    <title>My Account - Scotts-Web</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+    <script src="firebaseconfig.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'account.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // tosUrl and privacyPolicyUrl accept either url string or a callback
+        // function.
+        // Terms of service url/callback.
+        tosUrl: '<your-tos-url>',
+        // Privacy policy url/callback.
+        privacyPolicyUrl: function() {
+          window.location.assign('<your-privacy-policy-url>');
+        }
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
 </head>
 
 <body>
@@ -37,9 +70,9 @@
                 <ul class="navbar-nav">
                     <li><a class="nav-link" href="/">Home</a></li>
                     <li><a class="nav-link" href="/blog/">Blog</a></li>
-                    <li><a class="nav-link active" href="/projects/">Projects</a></li>
+                    <li><a class="nav-link" href="/projects/">Projects</a></li>
                     <li><a class="nav-link" href="/events/">Events</a></li>
-                    <li><a class="nav-link" href="/account/">My Account</a></li>
+                    <li><a class="nav-link active" href="/account/">My Account</a></li>
                 </ul>
             </div>
         </div>
@@ -47,29 +80,8 @@
 
     <div class="container">
 
-        <h1 class="title text-center">Projects</h1>
-        <hr>
-        <p>Here is where you will find my projects.</p>
-        <br>
+    <div id="firebaseui-auth-container"></div>
 
-        <div class="d-flex flex-row bd-highlight mb-3">
-            <div class="p-2 bd-highlight">
-                <a href="https://github.com/Scotty101"><img class="github-logo" src="/images/GitHub-Mark-64px.png"></a>
-            </div>
-            <div class="p-2 bd-highlight">
-                <a href="https://www.youtube.com/channel/UCkiH0mfyLcTn0X6ZYaRAHbA"><img class="youtube" src="/images/youtube-logo (1).png"></a>
-            </div>
-            <div class="p-2 bd-highlight">
-                <a href="https://web.roblox.com/games/2264333144/ROCKET-ROLL">
-                    <img class="roblox" src="/images/roblox-logo.png" alt="Roblox"">
-                </a>
-            </div>
-            <div class="p-2 bd-highlight">
-                <a href="https://scratch.mit.edu/projects/379836466/">
-                    <img class="Crappy-Chicken" src="/images/chicken.png" alt="Projetct1">
-                </a>
-            </div>
-          </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
