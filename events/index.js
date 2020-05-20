@@ -20,7 +20,7 @@ const action = async () => {
   const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY');
   const myJson = await response.json();
   var image = document.getElementById('picture');
-  image.src = myJson.hdurl;
+  image.src = myJson.url;
   var title = document.getElementById('title');
   title.innerHTML = myJson.title;
   var text = document.getElementById('text');
