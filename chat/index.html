@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/main.css">
-    <title>Projects - Scotts-Web</title>
+    <title>Chat - Scotts-Web</title>
 </head>
 
 <body>
@@ -36,15 +36,15 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav">
                     <li><a class="nav-link" href="/">Home</a></li>
-                    <li><a class="nav-link" href="/blog/">Blog</a></li>
-                    <li><a class="nav-link active" href="/projects/">Projects</a></li>
+                    <li><a class="nav-link" href="/projects/">Projects</a></li>
                     <li><a class="nav-link" href="/events/">Events</a></li>
                     <li><a class="nav-link" href="/account/">My Account</a></li>
+                    <li><a class="nav-link active" href="/chat/">Chat</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <p class= "center text">Currently you could not chat due to technical issues.<p>
     <div class="container">
 
         <h1 class="title text-center">Chat</h1>
@@ -72,7 +72,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
     <script src="/firebaseconfig.js"></script>
 
-    <script>
+    <script>                            
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
 
