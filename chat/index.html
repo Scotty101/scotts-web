@@ -48,7 +48,7 @@
 
         <h1 class="title text-center">Chat</h1>
         <hr>
-        <p class= "center text">Currently you can not chat due to technical issues.</p>
+        <!-- <p class= "center text">Currently you can not chat due to technical issues.</p> -->
         <div id="firechat-wrapper"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -86,7 +86,7 @@
 
         function initChat(user) {
             // Get a Firebase Database ref
-            var chatRef = firebase.database().ref("chat");
+            var chatRef = firebase.database().ref();
 
             // Create a Firechat instance
             var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
