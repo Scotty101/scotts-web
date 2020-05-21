@@ -56,6 +56,11 @@
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
+
+                if (!user.emailVerified) {
+                    window.location.href = "/verify.html?page=account";
+                }
+
                 document.getElementById("name").innerText = "Welcome " + user.displayName
                 document.getElementById("email").innerText = "Email: " + user.email
                 if (user.photoURL) {

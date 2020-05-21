@@ -76,6 +76,10 @@
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
 
+                if (!user.emailVerified) {
+                    window.location.href = "/verify.html?page=chat";
+                }
+
                 initChat(user);
 
             } else {
