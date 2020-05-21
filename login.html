@@ -34,36 +34,6 @@
     <script src="firebaseconfig.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
-    <script type="text/javascript">
-
-      var urlParams = new URLSearchParams(window.location.search);
-      var page = urlParams.get('page');
-
-      // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: '/' + page,
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID
-        ],
-        // tosUrl and privacyPolicyUrl accept either url string or a callback
-        // function.
-        // Terms of service url/callback.
-        tosUrl: function() {
-          alert("Do not be evil (please).");
-        },
-        // Privacy policy url/callback.
-        privacyPolicyUrl: function() {
-          alert("We care about your privacy (I think).");
-        }
-      };
-
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
 </head>
 
 <body>
@@ -77,8 +47,8 @@
                     <li><a class="nav-link" href="/">Home</a></li>
                     <li><a class="nav-link" href="/projects/">Projects</a></li>
                     <li><a class="nav-link" href="/events/">Events</a></li>
-                    <li><a class="nav-link active" href="/account/">My Account</a></li>
-                    <li><a class="nav-link" href="/chat/">Chat</a></li>
+                    <li><a id="chat" class="nav-link" href="/chat/">Chat</a></li>
+                    <li><a id="account" class="nav-link" href="/account/">My Account</a></li>
                 </ul>
             </div>
         </div>
@@ -98,6 +68,39 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+        <script type="text/javascript">
+
+          var urlParams = new URLSearchParams(window.location.search);
+          var page = urlParams.get('page');
+          if (page) {
+            document.getElementById(page).classList.add("active");
+          }
+    
+          // FirebaseUI config.
+          var uiConfig = {
+            signInSuccessUrl: '/' + page,
+            signInOptions: [
+              // Leave the lines as is for the providers you want to offer your users.
+              firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+              firebase.auth.EmailAuthProvider.PROVIDER_ID
+            ],
+            // tosUrl and privacyPolicyUrl accept either url string or a callback
+            // function.
+            // Terms of service url/callback.
+            tosUrl: function() {
+              alert("Do not be evil (please).");
+            },
+            // Privacy policy url/callback.
+            privacyPolicyUrl: function() {
+              alert("We care about your privacy (I think).");
+            }
+          };
+    
+          // Initialize the FirebaseUI Widget using Firebase.
+          var ui = new firebaseui.auth.AuthUI(firebase.auth());
+          // The start method will wait until the DOM is loaded.
+          ui.start('#firebaseui-auth-container', uiConfig);
+        </script>
 </body>
 
 </html>
