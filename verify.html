@@ -71,11 +71,25 @@
       document.getElementById(page).classList.add("active");
     }
 
+    let currentUser;
+
+    firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+              currentUser = user;
+
+              if (user.emailVerified) {
+                window.location.href = "/" + page;
+              }
+
+            } else {
+                console.log("No user signed in");
+            }
+        });
+
     function sendEmail() {
-      var user = firebase.auth().currentUser;
-      user.sendEmailVerification().then(function () {
+      currentUser.sendEmailVerification().then(function () {
         // Email sent.
-        alert("Email sent.");
+        alert("Email sent to " +  currentUser.email + '.');
       }, function (error) {
         // An error happened.
         alert("An error occured: " + error);
