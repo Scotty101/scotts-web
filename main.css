@@ -59,4 +59,16 @@ body {
     width: 70px;
 }
 
+canvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
 
+#play-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 20px;   
+}
