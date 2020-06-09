@@ -17,6 +17,10 @@ body {
     /* animation: Lennyface 1s infinite alternate linear; */
 }
 
+.text-center {
+    text-align: center;
+}
+
 .center {
     margin: 0px;
     display: block;

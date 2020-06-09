@@ -42,6 +42,8 @@ function setup() {
         xCor.push(xStart + i * diff);
         yCor.push(yStart);
     }
+    let loading = document.getElementById("loading");
+    loading.style.display = "none";
 }
 
 function draw() {
