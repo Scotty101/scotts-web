@@ -96,10 +96,10 @@
     
     <script>
         // Create a single supabase client for interacting with your database
-        const supabase = supabase.createClient('https://qfxjxbspusbdcckkbavp.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmeGp4YnNwdXNiZGNja2tiYXZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3NzI0OTAsImV4cCI6MTk5MzM0ODQ5MH0.M22Js1xPTFm9JyCbZaowg_RKfUVEK6KkluGZcX4t408');
+        const _supabase = supabase.createClient('https://qfxjxbspusbdcckkbavp.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmeGp4YnNwdXNiZGNja2tiYXZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3NzI0OTAsImV4cCI6MTk5MzM0ODQ5MH0.M22Js1xPTFm9JyCbZaowg_RKfUVEK6KkluGZcX4t408');
         
         async function foo() {
-            const { data, error } = await supabase
+            const { data, error } = await _supabase
             .from('projects')
             .select();
 
