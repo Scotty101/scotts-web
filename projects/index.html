@@ -116,15 +116,16 @@
             projectData = data;
         }
 
-        getProjects();
-
-        Vue.createApp({
+        getProjects().then(() => {
+            Vue.createApp({
             data() {
                 return {
                     projectData: projectData
                 }
             }
-        }).mount('#app')
+            }).mount('#app')
+        });
+        
     </script>
 
 </body>
