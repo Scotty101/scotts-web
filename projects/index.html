@@ -59,7 +59,7 @@
 
             <div class="d-flex flex-row bd-highlight mb-3">
                 <div class="p-2 bd-highlight">
-                    <a href="{{data[1].project_url}}"><img class="github-logo" src="/images/GitHub-Mark-64px.png"></a>
+                    <a href="{{projectData[1].project_url}}"><img class="github-logo" src="/images/GitHub-Mark-64px.png"></a>
                 </div>
                 <div class="p-2 bd-highlight">
                     <a href="https://www.youtube.com/channel/UCkiH0mfyLcTn0X6ZYaRAHbA"><img class="youtube" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.vectorico.com%2Fdownload%2Fsocial_media%2Fyoutube-red-circle.png&f=1&nofb=1"></a>
@@ -120,7 +120,7 @@
         Vue.createApp({
             data() {
                 return {
-                    data
+                    projectData: data
                 }
             }
         }).mount('#app')
