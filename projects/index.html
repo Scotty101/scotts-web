@@ -30,8 +30,6 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
 
-    <div id="app">
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
@@ -55,7 +53,9 @@
 
             <hr>
             <p>Here is where you will find my projects.</p>
-            {{projectData[1].name}}
+            <div id="app">
+                {{projectData[1].name}}
+            </div>
             <br>
 
             <div class="d-flex flex-row bd-highlight mb-3">
@@ -86,7 +86,6 @@
         <div id="score-location"></div>
         </div>
 
-    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
