@@ -30,59 +30,61 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div id="app">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav">
+                        <li><a class="nav-link" href="/">Home</a></li>
+                        <li><a class="nav-link active" href="/projects/">Projects</a></li>
+                        <li><a class="nav-link" href="/events/">Events</a></li>
+                        <li><a class="nav-link" href="/chat/">Chat</a></li>
+                        <li><a class="nav-link" href="/account/">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav">
-                    <li><a class="nav-link" href="/">Home</a></li>
-                    <li><a class="nav-link active" href="/projects/">Projects</a></li>
-                    <li><a class="nav-link" href="/events/">Events</a></li>
-                    <li><a class="nav-link" href="/chat/">Chat</a></li>
-                    <li><a class="nav-link" href="/account/">My Account</a></li>
-                </ul>
+
+            <h1 class="title text-center">Projects</h1>
+
+            <hr>
+            <p>Here is where you will find my projects.</p>
+            <br>
+
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <a href="{{data[1].project_url}}"><img class="github-logo" src="/images/GitHub-Mark-64px.png"></a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="https://www.youtube.com/channel/UCkiH0mfyLcTn0X6ZYaRAHbA"><img class="youtube" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.vectorico.com%2Fdownload%2Fsocial_media%2Fyoutube-red-circle.png&f=1&nofb=1"></a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="https://web.roblox.com/games/2264333144/ROCKET-ROLL">
+                        <img class="roblox" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fventuriantale%2Fimages%2F2%2F2f%2FLogoHD.png%2Frevision%2Flatest%3Fcb%3D20160310202258&f=1&nofb=1" alt="Roblox"">
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="https://scratch.mit.edu/projects/379836466/">
+                        <img class="Crappy-Chicken" src="/images/chicken.png" alt="Projetct1">
+                    </a>
+                </div>
             </div>
+            <iframe
+                src="https://editor.p5js.org/scotty101/embed/o9XzAMVaL"
+                width="400"
+                >
+            </iframe>
+        <h2 class="text-center" id="loading">Game loading...</h2>
+        <button id="play-button" class="btn btn-primary">Reset</button>
+        <div id="score-location"></div>
         </div>
-    </nav>
 
-    <div class="container">
-
-        <h1 class="title text-center">Projects</h1>
-        <div id="app">
-            <h2>Hello, {{name}}!</h2>
-        </div>
-        <hr>
-        <p>Here is where you will find my projects.</p>
-        <br>
-
-        <div class="d-flex flex-row bd-highlight mb-3">
-            <div class="p-2 bd-highlight">
-                <a href="https://github.com/Scotty101"><img class="github-logo" src="/images/GitHub-Mark-64px.png"></a>
-            </div>
-            <div class="p-2 bd-highlight">
-                <a href="https://www.youtube.com/channel/UCkiH0mfyLcTn0X6ZYaRAHbA"><img class="youtube" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.vectorico.com%2Fdownload%2Fsocial_media%2Fyoutube-red-circle.png&f=1&nofb=1"></a>
-            </div>
-            <div class="p-2 bd-highlight">
-                <a href="https://web.roblox.com/games/2264333144/ROCKET-ROLL">
-                    <img class="roblox" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fventuriantale%2Fimages%2F2%2F2f%2FLogoHD.png%2Frevision%2Flatest%3Fcb%3D20160310202258&f=1&nofb=1" alt="Roblox"">
-                </a>
-            </div>
-            <div class="p-2 bd-highlight">
-                <a href="https://scratch.mit.edu/projects/379836466/">
-                    <img class="Crappy-Chicken" src="/images/chicken.png" alt="Projetct1">
-                </a>
-            </div>
-          </div>
-          <iframe
-            src="https://editor.p5js.org/scotty101/embed/o9XzAMVaL"
-            width="400"
-            >
-        </iframe>
-    <h2 class="text-center" id="loading">Game loading...</h2>
-    <button id="play-button" class="btn btn-primary">Reset</button>
-    <div id="score-location"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -118,7 +120,7 @@
         Vue.createApp({
             data() {
                 return {
-                    name: 'Scott'
+                    data
                 }
             }
         }).mount('#app')
