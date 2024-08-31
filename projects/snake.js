@@ -1,4 +1,3 @@
-
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call
 let numSegments = 10;
 let direction = 'right';
@@ -13,7 +12,10 @@ let yCor = [];
 let xFruit = 0;
 let yFruit = 0;
 let scoreElem;
+let highScoreElem;
 let playButton;
+let eatSound;
+let highScore = 0;
 
 function setup() {
 
@@ -25,6 +27,18 @@ function setup() {
     scoreElem.position(rect.left, rect.top);
     scoreElem.id = 'score';
     scoreElem.style('color', 'black');
+
+    // Add high score element
+    highScoreElem = createDiv('High Score = 0');
+    highScoreElem.position(rect.left, rect.top + 30);
+    highScoreElem.id = 'high-score';
+    highScoreElem.style('color', 'black');
+
+    // Load high score from localStorage
+    if (localStorage.getItem('snakeHighScore')) {
+        highScore = parseInt(localStorage.getItem('snakeHighScore'));
+        updateHighScoreDisplay();
+    }
 
     playButton = document.getElementById('play-button');
     playButton.onclick = function () {
@@ -44,6 +58,8 @@ function setup() {
     }
     let loading = document.getElementById("loading");
     loading.style.display = "none";
+
+    eatSound = document.getElementById('eat-sound');
 }
 
 function draw() {
@@ -108,6 +124,13 @@ function checkGameStatus() {
         noLoop();
         const scoreVal = parseInt(scoreElem.html().substring(8));
         scoreElem.html('Game over! Your score was : ' + scoreVal);
+        
+        // Update high score if necessary
+        if (scoreVal > highScore) {
+            highScore = scoreVal;
+            localStorage.setItem('snakeHighScore', highScore);
+            updateHighScoreDisplay();
+        }
     }
 }
 
@@ -138,11 +161,21 @@ function checkForFruit() {
     strokeWeight(10);
     if (xCor[xCor.length - 1] === xFruit && yCor[yCor.length - 1] === yFruit) {
         const prevScore = parseInt(scoreElem.html().substring(8));
-        scoreElem.html('Score = ' + (prevScore + 1));
+        const newScore = prevScore + 1;
+        scoreElem.html('Score = ' + newScore);
+        
+        // Update high score if necessary
+        if (newScore > highScore) {
+            highScore = newScore;
+            localStorage.setItem('snakeHighScore', highScore);
+            updateHighScoreDisplay();
+        }
+        
         xCor.unshift(xCor[0]);
         yCor.unshift(yCor[0]);
         numSegments++;
         updateFruitCoordinates();
+        eatSound.play();
     }
 }
 
@@ -184,4 +217,8 @@ function keyPressed() {
             }
             break;
     }
+}
+
+function updateHighScoreDisplay() {
+    highScoreElem.html('High Score = ' + highScore);
 }

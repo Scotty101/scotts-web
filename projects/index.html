@@ -30,6 +30,8 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
 
+    <audio id="eat-sound" src="/sounds/eat.mp3" preload="auto"></audio>
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
@@ -77,11 +79,13 @@
                     </a>
                 </div>
             </div>
-            <iframe
-                src="https://editor.p5js.org/scotty101/embed/o9XzAMVaL"
-                width="400"
+            <div style="display: flex; justify-content: center;">
+                <iframe
+                    src="https://editor.p5js.org/scotty101/embed/o9XzAMVaL"
+                    width="400"
                 >
-            </iframe>
+                </iframe>
+            </div>
         <h2 class="text-center" id="loading">Game loading...</h2>
         <button id="play-button" class="btn btn-primary">Reset</button>
         <div id="score-location"></div>
